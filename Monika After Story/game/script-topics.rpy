@@ -2469,7 +2469,7 @@ label monika_algernon:
 
 #Play a poem game with monika, she calls you out for just stringing together random words
 
-#Comment when it's getting late. Say that the player should go to bed, say goodnight then close the game.
+#Comment when it's getting late. Say that the player should go to bed, say goodnight then close the game. 
 
 #Have you been cheating on me?
 
