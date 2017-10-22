@@ -2469,7 +2469,12 @@ label monika_algernon:
 
 #Play a poem game with monika, she calls you out for just stringing together random words
 
-#Comment when it's getting late. Say that the player should go to bed, say goodnight then close the game.
+#Comment when it's getting late. Say that the player should go to bed, say goodnight then close the game. 
+#import datetime
+#time_now = datetime.datetime.now().time()
+#sleep = time_now.replace(hour=22, minute=30, second=00)
+#if time_now >= sleep:
+#    exit()
 
 #Have you been cheating on me?
 
