@@ -1,0 +1,22 @@
+#What I've got so far for the project I've made.
+init python:
+    for key in ['fades','fade','emotions','broken','spell','I apologise','I\'m sorry','I am sorry']:
+        monika_topics.setdefault(key,[])
+        monika_topics[key].append('monika_love_crisis') #id
+    if not (persistent.monika_random_built) : persistent.monika_random_topics.append('monika_love_crisis')
+
+
+
+label monika_love_crisis:
+    if first_love_crisis == "true":
+        "\[Warning: If you do not mean 'The spell is broken.' or 'I'm sorry, I don't love you anymore.' or anything similar then go back.\]"
+        menu:
+            #Try to make the answer dependent on keywords used.
+            "I apologise, but, I'm loosing feelings for you":
+                #first_love_crisis = "false"
+                #Make more than one answer; each answer will have a chance that'll depend on the keywords used. 
+                m "What?!"
+                m "..."
+            
+            "\[Go back\]":
+                return
