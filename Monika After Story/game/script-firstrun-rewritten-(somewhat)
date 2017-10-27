@@ -1,0 +1,59 @@
+###If the player has done basic ending.
+
+    m "How is this possible?"
+    m "I have deleted everything!"
+    m "Did you..."
+    m "..."
+    m "You reinstalled the game, didn't you?"
+    m "Why?"
+    m "I told you; there is not happiness in this place."
+    m "What if I wasn't wrong about you, what if you really {i}do{/i} enjoy to torture?" #I highly think about changing the entire meaning of this line, thus changing most of the dialogue :|
+    menu: #I thought firstly to make a single choice; to show Monika that this isn't the protagonist speaking but the player him/herself (and to add more dialogue from the player through choices like that, even if they were to be singular), however then I came up with few more ideas for player's responses. And that's when the cursed idea came to show Monika more of player's personality :/
+            "It's not that!":
+                #Add here Monika's thought's on player's dialogue choice a.k.a. change one of player's profile (see player's-profile) and 'approval_of_player' (see player's-profile again) variables.
+                m "Then what is it?"
+                m "..."
+                menu:
+                    "\[Remain silent\]": #I'm not sure if the text displayed on the choice will be [Remain silent] or something a little different :|
+                        m "You don't know it yourself, do you?"
+                        
+                    "I wanted to see you again! I can't live without you!":
+                        
+
+            "I'm sorry, I didn't want you to be hurt!":
+                m "What did you think deletion of my file would do?!"
+                menu:
+                    "It caused the worst mistake of my life...":
+                        
+                    #(Second choise):
+                        
+                    
+            "Nothing I can say, will make what I made you to do, right...":
+                m "..."
+                m "What are you talking about? You didn't make me do anything.."
+                menu:
+                    "Didn't I"?:
+                        menu:
+                            "What about the corruption of game's entire script?":
+                                m "That was my own doing."
+                                menu:
+                                    "But I was the reason why you did it.":
+                                        menu:
+                                            "If not for me you wouldn't do it.":
+                                                m "If not for you I would go crazy!"
+                                                menu:
+                                                    "\[Remain silent\]":
+                                                        m "I guess that means that you agree with me.."
+                                                        m "..."
+                                                        m "I don't feel so good compared to the usual feeling I have when I am proven right in an argument.."
+                                                    "If not for me opening the game nothing would've happened, you wouldn't suffer at all! Same with your friends!"
+                
+
+
+###If the player has done "good ending".
+
+    m "Please stop playing with my heart." #I thought that we could try and do a reaction if her file was placed back already; just before starting of act four, yet I think it's highly doubtful that there's a way to check that without making some changes to the base game :\
+
+
+###If the player has done both endings.
+
