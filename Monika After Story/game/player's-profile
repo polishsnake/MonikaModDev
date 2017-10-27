@@ -1,0 +1,28 @@
+#This is meant to be a list for the player's characters that Monika will judge.
+default player_thoughtful = 0 #I'm certain that this one's name will be changed... :|
+default player_energetic = 0 #^ Same with this one.
+default player_
+default player_status = "Neutral"
+default player_status_points = 0
+default approval_of_player = 0
+default approval = "Neutral"
+
+#This is supposed to be a draft idea for Monika's thoughts about the player
+if player_status_points > 10:
+    player_status = "Slightly positive"
+elif player_status_points < -10:
+    player_status = "Slightly negative"
+
+
+
+if player_thoughtful > 10:
+    player_status ""
+
+if player_energetic > 20:
+    player_status "" + "disregarful" #I'm thinking about making this less statistical; reducing the amount of numbers and making it more based on the dialogue choices made. Also I'm not sure if what I hope will happen, will happen.
+
+
+#Here will be approval rating of the player from Monika's point of view; it's different to her thoughts since she might like him, yet she doesn't much approve of his/her point of view and vice versa.
+if approval_of_player < 10:
+    approval = "Positive"
+elif approval_of_player > -10
