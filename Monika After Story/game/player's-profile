@@ -1,11 +1,17 @@
 #This is meant to be a list for the player's characters that Monika will judge.
-default player_thoughtful = 0 #I'm certain that this one's name will be changed... :|
-default player_energetic = 0 #^ Same with this one.
-default player_
+default player_openness_to_experience = 0 #In short: Creativity. Interest in unusual. Quick to understand.
+default player_conscientiousness = 0 #In short: Being organised. Pretty much a perfectionist.
+default player_extraversion = 0 #In short: Being comfortable with attention and enthusiastic.
+default player_agreeableness = 0 #In short: Sympethising with others' feelings and showing interest for them.
+default player_neuroticism = 0 #In short: Pretty much emotional instability; can get easily into negative feelings, i.e. easily irritated of worrying. Often mood swings.
+
 default player_status = "Neutral"
-default player_status_points = 0
+
 default approval_of_player = 0
 default approval = "Neutral"
+
+default friendship_rating = 0
+default love_rating = 0
 
 #This is supposed to be a draft idea for Monika's thoughts about the player
 if player_status_points > 10:
@@ -15,14 +21,10 @@ elif player_status_points < -10:
 
 
 
-if player_thoughtful > 10:
-    player_status ""
-
-if player_energetic > 20:
-    player_status "" + "disregarful" #I'm thinking about making this less statistical; reducing the amount of numbers and making it more based on the dialogue choices made. Also I'm not sure if what I hope will happen, will happen.
 
 
-#Here will be approval rating of the player from Monika's point of view; it's different to her thoughts since she might like him, yet she doesn't much approve of his/her point of view and vice versa.
+#Here will be approval rating of the player. I might add a friendship/love rating as well. For now it's just general rating; just because it's maximum it doesn't mean that Monika is completely in love.
 if approval_of_player < 10:
-    approval = "Positive"
-elif approval_of_player > -10
+    approval = "Slightly positive"
+elif approval_of_player > -10:
+    approval = "Slightly negative"
