@@ -1,4 +1,4 @@
-﻿
+
 ## Initialization
 ################################################################################
 
@@ -257,9 +257,7 @@ screen input(prompt):
     style_prefix "input"
 
 
-
     window:
-
         vbox:
             xalign .5
             yalign .5
@@ -268,18 +266,15 @@ screen input(prompt):
             text prompt style "input_prompt"
             input id "input"
 
-
-style input_prompt is default
-
 style input_prompt:
     xmaximum gui.text_width
-    xalign gui.text_xalign
-    text_align gui.text_xalign
+    xcenter 0.5
+    text_align 0.5
 
 style input:
     caret "input_caret"
     xmaximum gui.text_width
-    xalign 0.5
+    xcenter 0.5
     text_align 0.5
 
 
@@ -338,7 +333,7 @@ screen rigged_choice(items):
     vbox:
         for i in items:
             textbutton i.caption action i.action
-    
+
     timer 1.0/30.0 repeat True action Function(RigMouse)
 
 
@@ -447,10 +442,7 @@ screen navigation():
 
             if main_menu:
 
-                if persistent.playthrough == 1:
-                    textbutton _("ŔŗñĮ¼»ŧþŀÂŻŕěōì«") action If(persistent.playername, true=Start(), false=Show(screen="name_input", message="Please enter your name", ok_action=Function(FinishEnterName)))
-                else:
-                    textbutton _("New Game") action If(persistent.playername, true=Start(), false=Show(screen="name_input", message="Please enter your name", ok_action=Function(FinishEnterName)))
+                textbutton _("New Game") action If(persistent.playername, true=Start(), false=Show(screen="name_input", message="Please enter your name", ok_action=Function(FinishEnterName)))
 
             else:
 
@@ -465,10 +457,7 @@ screen navigation():
                 textbutton _("End Replay") action EndReplay(confirm=True)
 
             elif not main_menu:
-                if persistent.playthrough != 3:
-                    textbutton _("Main Menu") action MainMenu()
-                else:
-                    textbutton _("Main Menu") action NullAction()
+                textbutton _("Main Menu") action NullAction(), Show(screen="dialog", message="No need to go back there.\nYou'll just end up back here so don't worry.", ok_action=Hide("dialog"))
 
             textbutton _("Settings") action [ShowMenu("preferences"), SensitiveIf(renpy.get_screen("preferences") == None)]
 
@@ -517,7 +506,7 @@ screen main_menu():
     style_prefix "main_menu"
 
 #Just add Monika art now!
-    
+
     #   if persistent.ghost_menu:
     #      add "white"
     #     add "menu_art_y_ghost"
@@ -665,8 +654,8 @@ screen game_menu(title, scroll=None):
 
     use navigation
 
-    if not main_menu and persistent.playthrough == 2 and not persistent.menu_bg_m and renpy.random.randint(0, 49) == 0:
-        on "show" action Show("game_menu_m")
+    # if not main_menu and not persistent.menu_bg_m and renpy.random.randint(0, 49) == 0:
+    #     on "show" action Show("game_menu_m")
 
     textbutton _("Return"):
         style "return_button"
@@ -799,13 +788,8 @@ screen load():
 
 init python:
     def FileActionMod(name, page=None, **kwargs):
-        if persistent.playthrough == 1 and not persistent.deleted_saves and renpy.current_screen().screen_name[0] == "load" and FileLoadable(name):
-            return Show(screen="dialog", message="File error: \"characters/sayori.chr\"\n\nThe file is missing or corrupt.",
-                ok_action=Show(screen="dialog", message="The save file is corrupt. Starting a new game.", ok_action=Function(renpy.full_restart, label="start")))
-        elif persistent.playthrough == 3 and renpy.current_screen().screen_name[0] == "save":
+        if renpy.current_screen().screen_name[0] == "save":
             return Show(screen="dialog", message="There's no point in saving anymore.\nDon't worry, I'm not going anywhere.", ok_action=Hide("dialog"))
-        else:
-            return FileAction(name)
 
 
 screen file_slots(title):

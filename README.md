@@ -1,40 +1,58 @@
-# Monika After Story
+![Monika After Story](https://github.com/Backdash/MonikaModDev/blob/master/Monika%20After%20Story/game/mod_assets/menu_new.png?raw=True)
 
-This is a mod for the free game DDLC from Team Salvato, available for download [here](ddlc.moe). I don't own any part of the game.
-Check the releases page for the latest build.
+# Monika After Story (MAS)
+Monika After Story is a mod for the free game [Doki Doki Literature Club](https://www.ddlc.moe) from [Team Salvato](http://teamsalvato.com/). MAS builds on Act 3 to create a simulator of your eternal life with Monika, featuring new events, handlers, and metacommentary!
 
-Basically, it replaces the end of the original game with a simulator of your eternal life with Monika, featuring new events, handlers, and metacommentary. Think Love Plus meets Totono.
+Please check the [Releases](https://github.com/Backdash/MonikaModDev/releases) page for the latest stable build.
 
-If you have any problems with the game, feel free to raise issues here. Pull requests for new stuff is always welcome, so long as it's well written and makes sense. If you want to request new features, that's fine too.
+If you would like to make your own mod like this one, check out our sister project: the [DDLCModTemplate](https://github.com/therationalpi/DDLCModTemplate).
 
-### Have an idea for a topic, but don't want to add it yourself?
+### Features
 
-Use this [suggestion box](http://freesuggestionbox.com/pub/dreoode) to submit full or partial scripts for Monika's topic, and it'll get written about eventually.
+* Spend forever with Monika!
 
- ### Guide to Adding New Stuff
-  You'll need the Ren'Py SDK available [here](https://www.renpy.org/latest.html). Point the project directory to this root folder (you should see Monika After Story available in the Ren'Py launcher).
+* Dozens of new conversation topics
 
- The unpacked images and .rpy files in "Monika After Story"/game/ are what Ren'Py uses to launch the project, so any changes you make have to go there to work.
- The original scripts and images are unpackaged can be found in the folders called original_scripts/ and original_images/ for you to refer to if you're stuck.
+* You can now talk to Monika to tell her what you'd like to talk about
 
-Quick list of important scripts:
-script.rpy is where the script starts
-script-ch30.rpy is the script for Monika's room
-script-topics.rpy is where Monika's conversation topics are
-screens.rpy handles the game menus.
-splash.rpy handles the splash screens (if you want a pop-up dialogue box or something)
+### Upcoming Features
 
-If you just want to add more edgy dialogue for Monika in the infinite loop, go to script-topics.rpy
-Use one of the other topics as a template
-Then go to the end of the file and add it in.
+* New games and activities to do with Monika
+
+* More unique events and story
+
+
+## Contributing to Monika After Story
+ 
+### Bugs & Suggestions
+If there are issues with MAS, please file a [bug report](https://github.com/Backdash/MonikaModDev/issues/new?labels=bug&body=Describe%20bug%20and%20steps%20for%20reproduction%20here&title=%5BBug%5D%20-%20).
+
+To add a suggestion, visit [this link](https://github.com/Backdash/MonikaModDev/issues/new?labels=suggestion&body=Your%20suggestion%20goes%20here&title=%5BSuggestion%5D%20-%20)
+ 
+ ### Other Help
+ Want to help with MAS? Navigate to the [issues page](https://github.com/Backdash/MonikaModDev/issues) to find current bugs or suggestions to work on.
+
+If you have a change you'd like to submit, open a [pull request](https://github.com/Backdash/MonikaModDev/pulls). Any changes made will be reviewed by contributors & fixed/added on to as needed.
+
+#### Adding Content
+Want to add some content to MAS? Here's a list of important .RPY files the game uses.
+
+- **script.rpy**: This is where it all begins. Handles what chapter you start on, etc.
+- **script-ch30.rpy**: Script for Monika's room. Contains all the opening dialogue, events, etc.
+- **script-topics.rpy**: All topics used by Monika are written here. You can add your own dialogue by checking the information below!
+- **script-greetings.rpy**: Add lines for Monika to greet you when loading the game.
+- **splash.rpy**: Handles the splash screens seen in-game. 
+
+If you wish to add more dialogue to the space room, navigate to script-topics.rpy and use this template.
 
 Example new dialogue code block:
-```
-init python:
-    #This is a list of keywords for this topic
+```renpy
+init 5 python:
+    # List of keywords for the topic.
     for key in ['my','key','words']:
-        monika_topics[key] = 'monika_example' #id
-    if not (persistent.monika_random_built) : persistent.monika_random_topics.append('monika_example')
+        monika_topics.setdefault(key,[])
+        monika_topics[key].append('monika_example') # Identifier
+    monika_random_topics.append('monika_example') # Optional. Remove if you don't want Monika to bring this up at random.
 
 label monika_example:
     m "This is an example topic."
@@ -44,4 +62,13 @@ label monika_example:
     return
 ```
 
-For things more complicated than adding in dialogue, consult Ren'Py tutorials.
+For things more complicated than simple dialogue, consult the Ren'Py documentation available online.
+
+[More info is available in our Contributing Guide](https://github.com/Backdash/MonikaModDev/blob/master/CONTRIBUTING.md)
+
+ ### Join the conversation
+ If you want to actively participate in contributing to/building this mod, [join the Discord server!](https://discord.gg/7P5DnJ4). You can also [follow us on twitter](https://twitter.com/MonikaAfterMod) for game updates, and a constant stream of our favorite Monika-related content from around the web. Please be sure to follow our [Code of Conduct](https://github.com/Backdash/MonikaModDev/blob/master/CODE_OF_CONDUCT.md), which is essentially to be courteous and respectful.
+ 
+## License info
+
+We do our best to conform to Team Salvato's [guidelines for fan works](http://teamsalvato.com/ip-guidelines/). All characters and original content are property of Team Salvato. Monika After Story is an open source project, and in addition to named contributors, this mod includes contributions from anonymous users of 4chan, where this project got its start. More info can be found on our [License Page](https://github.com/Backdash/MonikaModDev/blob/master/LICENSE.md).
